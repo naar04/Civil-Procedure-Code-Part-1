@@ -1,0 +1,507 @@
+<HTML>
+<head><script>
+var intCurrentQuestion = 0;
+var intTotalQuestions = 48;
+function SayHi() { alert('Hi'); }
+function CreateSummary() { var intCorrect = 0, intIncorrect=0, intManual=0; for (var i=0;i < intTotalQuestions;i++) { var objQuestion = document.getElementById('divQuestion' + i); if (objQuestion == null) { alert('Null! ' + i); } 
+var blnCorrect=true; for (var j=0;j<objQuestion.getElementsByTagName('input').length;j++) { var objCurrentAnswer = objQuestion.getElementsByTagName('input')[j]; if (objCurrentAnswer.correct != "1" && objCurrentAnswer.checked) { blnCorrect = false;  } if (objCurrentAnswer.correct == "1" && objCurrentAnswer.checked == false) { blnCorrect = false;  }  }  if (objQuestion.getElementsByTagName('textarea').length > 0) { intManual +=1; } else { if (blnCorrect) { intCorrect +=1; } else { intIncorrect +=1;} }  } document.getElementById('lblCorrect').innerHTML = 'Correct Answers: <strong>' + intCorrect + '</strong>';  document.getElementById('lblIncorrect').innerHTML = 'Incorrect Answers: <strong>' + intIncorrect + '</strong>';  document.getElementById('lblManual').innerHTML = 'Answers requiring manual review: <strong>' + intManual + '</strong>'; }function UpdateTitle() { if (intCurrentQuestion == 0) { document.getElementById('btnPrevious').style.display='none'; } else { document.getElementById('btnPrevious').style.display='block'; } if ((intCurrentQuestion + 1) == intTotalQuestions) { document.getElementById('btnNext').innerHTML = 'Finish'; } else { document.getElementById('btnNext').innerHTML = ' Next'; } document.getElementById('lblTitle').innerHTML = 'Question ' + (intCurrentQuestion + 1) + ' of ' + intTotalQuestions ; }
+function NextQuestion() { if ((intCurrentQuestion+1) == intTotalQuestions) { CreateSummary(); document.getElementById('divQuestion' + intCurrentQuestion).style.display = 'none'; document.getElementById('divSummary').style.display = 'block';     } else {    try {document.getElementById('divQuestion' + intCurrentQuestion).style.display = 'none' ; intCurrentQuestion = intCurrentQuestion + 1; document.getElementById('divQuestion' + intCurrentQuestion).style.display = 'block' ; UpdateTitle(); } catch (err) { alert(err.message); } } }
+function PreviousQuestion() { try {document.getElementById('divQuestion' + intCurrentQuestion).style.display = 'none' ; intCurrentQuestion = intCurrentQuestion - 1; document.getElementById('divQuestion' + intCurrentQuestion).style.display = 'block' ; UpdateTitle(); } catch (err) { alert(err.message); } }
+</script></head>
+<body>
+<div style="text-align:center;width:90%;height:80%;padding:20px;">
+<h2 style="font-family:Arial; ">Civil Procedure Code 1908 - MCQs Part-I</h2>
+<div id="lblTitle" style="background-color:black;color:white;">Sample Quiz</div>
+<table style="width:100%;"><tr><td style="width:50%;"><a id="btnPrevious" href="#" onclick="javascript: PreviousQuestion()">Previous</a></td><td style="width:50%;text-align:right;"><a id="btnNext" href='#' onclick="javascript: NextQuestion()">Next</a></td></tr></table>
+<div id="divQuestion0"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:block">
+<div ><span>Decree Holder means</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=1 id="Q0A0" name="rb0" type="radio" ></input> Any person in whose favor decree has been passed</span><br />
+<span><input value="2" correct=0 id="Q0A1" name="rb0" type="radio" ></input> Any person against whom decree has been passed</span><br />
+<span><input value="3" correct=0 id="Q0A2" name="rb0" type="radio" ></input> Any person  against whom execution has been made</span><br />
+<span><input value="4" correct=0 id="Q0A3" name="rb0" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion1"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Judge Debtor means</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q1A0" name="rb1" type="radio" ></input> Any person against whom a decree has been passed</span><br />
+<span><input value="2" correct=0 id="Q1A1" name="rb1" type="radio" ></input> Any person in whose favor decree has been passed</span><br />
+<span><input value="3" correct=0 id="Q1A2" name="rb1" type="radio" ></input> Any person against whom an execution has been made</span><br />
+<span><input value="4" correct=1 id="Q1A3" name="rb1" type="radio" ></input> Both a & c</span><br />
+</div>
+</div>
+
+<div id="divQuestion2"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>The Judge means the</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q2A0" name="rb2" type="radio" ></input> The Presiding officer of the elction polling booth</span><br />
+<span><input value="2" correct=0 id="Q2A1" name="rb2" type="radio" ></input> The Presiding officer of Criminal Court</span><br />
+<span><input value="3" correct=1 id="Q2A2" name="rb2" type="radio" ></input> The Presiding Officer of Civil Court</span><br />
+<span><input value="4" correct=0 id="Q2A3" name="rb2" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion3"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>District means the local limits of the jurisdiction of the principal Civil Court of original jurisdiction , herein after called a</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q3A0" name="rb3" type="radio" ></input> Tehsil Court</span><br />
+<span><input value="2" correct=1 id="Q3A1" name="rb3" type="radio" ></input> District Court</span><br />
+<span><input value="3" correct=0 id="Q3A2" name="rb3" type="radio" ></input> District Revenue Court</span><br />
+<span><input value="4" correct=0 id="Q3A3" name="rb3" type="radio" ></input> District Collector Court</span><br />
+</div>
+</div>
+
+<div id="divQuestion4"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Foreign Judgement means</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q4A0" name="rb4" type="radio" ></input> The judgement of High Court</span><br />
+<span><input value="2" correct=0 id="Q4A1" name="rb4" type="radio" ></input> The Judgement of Supreme Court</span><br />
+<span><input value="3" correct=1 id="Q4A2" name="rb4" type="radio" ></input> Judgement of a Foreign Court</span><br />
+<span><input value="4" correct=0 id="Q4A3" name="rb4" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion5"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>According to Section 3 of CPC, the District Court is subordinate to the </span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=1 id="Q5A0" name="rb5" type="radio" ></input> High Court</span><br />
+<span><input value="2" correct=0 id="Q5A1" name="rb5" type="radio" ></input> Senior Civil Court of District</span><br />
+<span><input value="3" correct=0 id="Q5A2" name="rb5" type="radio" ></input> Small causes court</span><br />
+<span><input value="4" correct=0 id="Q5A3" name="rb5" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion6"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>According to Section 3 of CPC every Court of Small Causes is subordinate to the </span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q6A0" name="rb6" type="radio" ></input> High Court</span><br />
+<span><input value="2" correct=0 id="Q6A1" name="rb6" type="radio" ></input> District Court</span><br />
+<span><input value="3" correct=0 id="Q6A2" name="rb6" type="radio" ></input> Both a & b</span><br />
+<span><input value="4" correct=0 id="Q6A3" name="rb6" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion7"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Decision given by the competent court of law have jurisdiction on concerned matter are either</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q7A0" name="rb7" type="radio" ></input> Decrees</span><br />
+<span><input value="2" correct=0 id="Q7A1" name="rb7" type="radio" ></input> Orders</span><br />
+<span><input value="3" correct=0 id="Q7A2" name="rb7" type="radio" ></input> Both a or b</span><br />
+<span><input value="4" correct=0 id="Q7A3" name="rb7" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion8"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>A Decree always follow the judgement, which is pronounced by the court</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q8A0" name="rb8" type="radio" ></input> Before hearing the case</span><br />
+<span><input value="2" correct=0 id="Q8A1" name="rb8" type="radio" ></input> Interim order passed by the Judge during proceeding</span><br />
+<span><input value="3" correct=1 id="Q8A2" name="rb8" type="radio" ></input> After hearing the case</span><br />
+<span><input value="4" correct=0 id="Q8A3" name="rb8" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion9"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>According to Section 2(2) of CPC Decree means</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q9A0" name="rb9" type="radio" ></input> The formal expression of adjudication</span><br />
+<span><input value="2" correct=0 id="Q9A1" name="rb9" type="radio" ></input> Determine the rights of the parties with regard to all or any matter controversy in suit</span><br />
+<span><input value="3" correct=0 id="Q9A2" name="rb9" type="radio" ></input> And may be either preliminary or final</span><br />
+<span><input value="4" correct=1 id="Q9A3" name="rb9" type="radio" ></input> All of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion10"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Judgement means the statement given by the</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q10A0" name="rb10" type="radio" ></input> Plaintiff on the grounds of a Decree or Order</span><br />
+<span><input value="2" correct=0 id="Q10A1" name="rb10" type="radio" ></input> Respondent on the grounds of a decree or Order</span><br />
+<span><input value="3" correct=1 id="Q10A2" name="rb10" type="radio" ></input> Judge of the grounds of a Decree or Order</span><br />
+<span><input value="4" correct=0 id="Q10A3" name="rb10" type="radio" ></input> All of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion11"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>In legal sense "Order" means a decision of a</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q11A0" name="rb11" type="radio" ></input> Court made in writing</span><br />
+<span><input value="2" correct=0 id="Q11A1" name="rb11" type="radio" ></input> Judge made in writing</span><br />
+<span><input value="3" correct=1 id="Q11A2" name="rb11" type="radio" ></input> Both a or b</span><br />
+<span><input value="4" correct=0 id="Q11A3" name="rb11" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion12"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>According to Section 2 (14) of CPC, Order means the formal expression of any decision of</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=1 id="Q12A0" name="rb12" type="radio" ></input> A Civil Court which is not a Decree</span><br />
+<span><input value="2" correct=0 id="Q12A1" name="rb12" type="radio" ></input> A Civil Judge which is not a Decree</span><br />
+<span><input value="3" correct=0 id="Q12A2" name="rb12" type="radio" ></input> A Magistrate which is not a Decree</span><br />
+<span><input value="4" correct=0 id="Q12A3" name="rb12" type="radio" ></input> All of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion13"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Essentials of Order are</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q13A0" name="rb13" type="radio" ></input> Not a Decree</span><br />
+<span><input value="2" correct=0 id="Q13A1" name="rb13" type="radio" ></input> Must be in writing</span><br />
+<span><input value="3" correct=0 id="Q13A2" name="rb13" type="radio" ></input> Capable of Execution</span><br />
+<span><input value="4" correct=1 id="Q13A3" name="rb13" type="radio" ></input> All of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion14"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Decree is not effective when it is</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q14A0" name="rb14" type="radio" ></input> Passed</span><br />
+<span><input value="2" correct=0 id="Q14A1" name="rb14" type="radio" ></input> Go through the process of execution</span><br />
+<span><input value="3" correct=0 id="Q14A2" name="rb14" type="radio" ></input> Both a & b</span><br />
+<span><input value="4" correct=0 id="Q14A3" name="rb14" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion15"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>The decision given by the Judge is called</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=1 id="Q15A0" name="rb15" type="radio" ></input> Judgement</span><br />
+<span><input value="2" correct=0 id="Q15A1" name="rb15" type="radio" ></input> Decree</span><br />
+<span><input value="3" correct=0 id="Q15A2" name="rb15" type="radio" ></input> Direction</span><br />
+<span><input value="4" correct=0 id="Q15A3" name="rb15" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion16"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>The "word" Jurisdiction signifies the scope of </span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=1 id="Q16A0" name="rb16" type="radio" ></input> Power and Authority</span><br />
+<span><input value="2" correct=0 id="Q16A1" name="rb16" type="radio" ></input> Civil Nature</span><br />
+<span><input value="3" correct=0 id="Q16A2" name="rb16" type="radio" ></input> Civil Suite</span><br />
+<span><input value="4" correct=0 id="Q16A3" name="rb16" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion17"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>The kinds of jurisdiction are</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q17A0" name="rb17" type="radio" ></input> Six</span><br />
+<span><input value="2" correct=0 id="Q17A1" name="rb17" type="radio" ></input> Five</span><br />
+<span><input value="3" correct=1 id="Q17A2" name="rb17" type="radio" ></input> Four</span><br />
+<span><input value="4" correct=0 id="Q17A3" name="rb17" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion18"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>According to section 19 & 20 of CPC a Civil Court has</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=1 id="Q18A0" name="rb18" type="radio" ></input> Personal Jurisdiction</span><br />
+<span><input value="2" correct=0 id="Q18A1" name="rb18" type="radio" ></input> Pecuniary Jurisdiction</span><br />
+<span><input value="3" correct=0 id="Q18A2" name="rb18" type="radio" ></input> Territorial Jurisdiction</span><br />
+<span><input value="4" correct=0 id="Q18A3" name="rb18" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion19"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Pecuniary Jurisdiction means</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q19A0" name="rb19" type="radio" ></input> Jurisdiction of the court with reference to the value of the subject matter of the suit</span><br />
+<span><input value="2" correct=0 id="Q19A1" name="rb19" type="radio" ></input> Jurisdiction of the court with reference to the territorial jurisdiction</span><br />
+<span><input value="3" correct=1 id="Q19A2" name="rb19" type="radio" ></input> Both a & b</span><br />
+<span><input value="4" correct=0 id="Q19A3" name="rb19" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion20"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>The place pf the institution of a suit is determined by the rules provided in section</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q20A0" name="rb20" type="radio" ></input> 11 to 13 of CPC</span><br />
+<span><input value="2" correct=1 id="Q20A1" name="rb20" type="radio" ></input> 15 to 20 of CPC</span><br />
+<span><input value="3" correct=0 id="Q20A2" name="rb20" type="radio" ></input> 21 to 25 of CPC</span><br />
+<span><input value="4" correct=0 id="Q20A3" name="rb20" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion21"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Sections 16 to 20 classify suits under there heads</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q21A0" name="rb21" type="radio" ></input> Suits relating to immovable property</span><br />
+<span><input value="2" correct=0 id="Q21A1" name="rb21" type="radio" ></input> Suits for compensation for wrong done to the person  or to movable property</span><br />
+<span><input value="3" correct=0 id="Q21A2" name="rb21" type="radio" ></input> Suits of all other kinds</span><br />
+<span><input value="4" correct=1 id="Q21A3" name="rb21" type="radio" ></input> All of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion22"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>According to Section 15 of CPC every suit shall be instituted in the court of the</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=1 id="Q22A0" name="rb22" type="radio" ></input> Lowest grade competent to try it</span><br />
+<span><input value="2" correct=0 id="Q22A1" name="rb22" type="radio" ></input> Highest grade competent to try it</span><br />
+<span><input value="3" correct=0 id="Q22A2" name="rb22" type="radio" ></input> Middle grade uncompetent to try it</span><br />
+<span><input value="4" correct=0 id="Q22A3" name="rb22" type="radio" ></input> All of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion23"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>According to Section 9 of CPC Civil Courts have Jurisdiction to try all suits of </span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q23A0" name="rb23" type="radio" ></input> Criminal Nature</span><br />
+<span><input value="2" correct=1 id="Q23A1" name="rb23" type="radio" ></input> Civil Nature</span><br />
+<span><input value="3" correct=0 id="Q23A2" name="rb23" type="radio" ></input> Criminal and Civil Nature</span><br />
+<span><input value="4" correct=0 id="Q23A3" name="rb23" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion24"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Under CPC what limitations / bars are created upon the jurisdiction of Civil Courts</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q24A0" name="rb24" type="radio" ></input> Absolute bars</span><br />
+<span><input value="2" correct=0 id="Q24A1" name="rb24" type="radio" ></input> Conditional bars</span><br />
+<span><input value="3" correct=0 id="Q24A2" name="rb24" type="radio" ></input> Special Bars</span><br />
+<span><input value="4" correct=1 id="Q24A3" name="rb24" type="radio" ></input> All of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion25"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Jurisdiction of Civil Courts is barred in respect of matters</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q25A0" name="rb25" type="radio" ></input> Pending before Criminal Courts</span><br />
+<span><input value="2" correct=0 id="Q25A1" name="rb25" type="radio" ></input> Already adjudicated upon by such courts</span><br />
+<span><input value="3" correct=1 id="Q25A2" name="rb25" type="radio" ></input> Both a & b</span><br />
+<span><input value="4" correct=0 id="Q25A3" name="rb25" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion26"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Family matters are within the Jurisdiction of </span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=1 id="Q26A0" name="rb26" type="radio" ></input> Family Courts</span><br />
+<span><input value="2" correct=0 id="Q26A1" name="rb26" type="radio" ></input> Civil Courts</span><br />
+<span><input value="3" correct=0 id="Q26A2" name="rb26" type="radio" ></input> Both Family and Civil Courts</span><br />
+<span><input value="4" correct=0 id="Q26A3" name="rb26" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion27"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Section 9 of CPC recognizes doctrine of </span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q27A0" name="rb27" type="radio" ></input> Express bar of jurisdiction</span><br />
+<span><input value="2" correct=1 id="Q27A1" name="rb27" type="radio" ></input> Implied bar of Jurisdiction</span><br />
+<span><input value="3" correct=0 id="Q27A2" name="rb27" type="radio" ></input> Both a & b</span><br />
+<span><input value="4" correct=0 id="Q27A3" name="rb27" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion28"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Civil Courts woul have Jurisdiction to examine facts of forums created under special law</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=1 id="Q28A0" name="rb28" type="radio" ></input> False </span><br />
+<span><input value="2" correct=0 id="Q28A1" name="rb28" type="radio" ></input> True</span><br />
+<span><input value="3" correct=0 id="Q28A2" name="rb28" type="radio" ></input> </span><br />
+<span><input value="4" correct=0 id="Q28A3" name="rb28" type="radio" ></input> </span><br />
+</div>
+</div>
+
+<div id="divQuestion29"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>According to Section 9 CPC , Civil Courts have jurisdiction to determine all suits of Civil nature</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q29A0" name="rb29" type="radio" ></input> False</span><br />
+<span><input value="2" correct=1 id="Q29A1" name="rb29" type="radio" ></input> True</span><br />
+<span><input value="3" correct=0 id="Q29A2" name="rb29" type="radio" ></input> </span><br />
+<span><input value="4" correct=0 id="Q29A3" name="rb29" type="radio" ></input> </span><br />
+</div>
+</div>
+
+<div id="divQuestion30"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>The Common law principle of Res-Sub-Judice is incorporated in Section </span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q30A0" name="rb30" type="radio" ></input> 8 of CPC</span><br />
+<span><input value="2" correct=0 id="Q30A1" name="rb30" type="radio" ></input> 9 of CPC</span><br />
+<span><input value="3" correct=1 id="Q30A2" name="rb30" type="radio" ></input> 10 of CPC</span><br />
+<span><input value="4" correct=0 id="Q30A3" name="rb30" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion31"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Res Sub Judice technically means that the matter in issue is</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q31A0" name="rb31" type="radio" ></input> Already decided by court</span><br />
+<span><input value="2" correct=1 id="Q31A1" name="rb31" type="radio" ></input> Already under Judicial Scrutiny </span><br />
+<span><input value="3" correct=0 id="Q31A2" name="rb31" type="radio" ></input> Already prohibited by court at technical ground</span><br />
+<span><input value="4" correct=0 id="Q31A3" name="rb31" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion32"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>When a principle of Res Sub Judice applies, proceedings of subsequent suit shall be</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q32A0" name="rb32" type="radio" ></input> Started</span><br />
+<span><input value="2" correct=0 id="Q32A1" name="rb32" type="radio" ></input> Restarted</span><br />
+<span><input value="3" correct=1 id="Q32A2" name="rb32" type="radio" ></input> Stayed</span><br />
+<span><input value="4" correct=0 id="Q32A3" name="rb32" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion33"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>The doctrine of "Res Sub Judice" prohibits the trial of two parallel litigations in respect of the same cause of action</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=1 id="Q33A0" name="rb33" type="radio" ></input> True </span><br />
+<span><input value="2" correct=0 id="Q33A1" name="rb33" type="radio" ></input> False</span><br />
+<span><input value="3" correct=0 id="Q33A2" name="rb33" type="radio" ></input> </span><br />
+<span><input value="4" correct=0 id="Q33A3" name="rb33" type="radio" ></input> </span><br />
+</div>
+</div>
+
+<div id="divQuestion34"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Elements in Section 10 of CPC are </span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q34A0" name="rb34" type="radio" ></input> Parties are same in the two suits</span><br />
+<span><input value="2" correct=0 id="Q34A1" name="rb34" type="radio" ></input> Matter in issue in both the suits is same</span><br />
+<span><input value="3" correct=1 id="Q34A2" name="rb34" type="radio" ></input> Both a & b</span><br />
+<span><input value="4" correct=0 id="Q34A3" name="rb34" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion35"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>The doctrine of Res Judicata has been incorporated in section</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q35A0" name="rb35" type="radio" ></input> 9 of CPC</span><br />
+<span><input value="2" correct=0 id="Q35A1" name="rb35" type="radio" ></input> 10 of CPC</span><br />
+<span><input value="3" correct=1 id="Q35A2" name="rb35" type="radio" ></input> 11 of CPC</span><br />
+<span><input value="4" correct=0 id="Q35A3" name="rb35" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion36"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>The term Res Judicata signifies, that the matter in dispute has been </span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=1 id="Q36A0" name="rb36" type="radio" ></input> Considered and finally settled</span><br />
+<span><input value="2" correct=0 id="Q36A1" name="rb36" type="radio" ></input> Pending in the same court</span><br />
+<span><input value="3" correct=0 id="Q36A2" name="rb36" type="radio" ></input> Pending at pre-trial reconciliation</span><br />
+<span><input value="4" correct=0 id="Q36A3" name="rb36" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion37"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>The doctrine of Res Judicata is based on </span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q37A0" name="rb37" type="radio" ></input> Two Maxims </span><br />
+<span><input value="2" correct=1 id="Q37A1" name="rb37" type="radio" ></input> Three Maxims</span><br />
+<span><input value="3" correct=0 id="Q37A2" name="rb37" type="radio" ></input> Four Maxims</span><br />
+<span><input value="4" correct=0 id="Q37A3" name="rb37" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion38"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Essential ingredient for the applicability of Section 11 are </span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q38A0" name="rb38" type="radio" ></input> Same matter in issue</span><br />
+<span><input value="2" correct=0 id="Q38A1" name="rb38" type="radio" ></input> Same parties</span><br />
+<span><input value="3" correct=0 id="Q38A2" name="rb38" type="radio" ></input> Same title</span><br />
+<span><input value="4" correct=1 id="Q38A3" name="rb38" type="radio" ></input> All of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion39"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Courts have inherent powers to set aside their own </span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q39A0" name="rb39" type="radio" ></input> Judgement</span><br />
+<span><input value="2" correct=0 id="Q39A1" name="rb39" type="radio" ></input> Decree</span><br />
+<span><input value="3" correct=0 id="Q39A2" name="rb39" type="radio" ></input> Final order</span><br />
+<span><input value="4" correct=1 id="Q39A3" name="rb39" type="radio" ></input> All of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion40"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Section 12(2) of CPC provide remedy against Decree or Order obtained through fraud or without jurisdiction</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=1 id="Q40A0" name="rb40" type="radio" ></input> True</span><br />
+<span><input value="2" correct=0 id="Q40A1" name="rb40" type="radio" ></input> False</span><br />
+<span><input value="3" correct=0 id="Q40A2" name="rb40" type="radio" ></input> </span><br />
+<span><input value="4" correct=0 id="Q40A3" name="rb40" type="radio" ></input> </span><br />
+</div>
+</div>
+
+<div id="divQuestion41"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>According to Section 16, suit to be instituted where subject matter is situated</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=1 id="Q41A0" name="rb41" type="radio" ></input> True</span><br />
+<span><input value="2" correct=0 id="Q41A1" name="rb41" type="radio" ></input> False</span><br />
+<span><input value="3" correct=0 id="Q41A2" name="rb41" type="radio" ></input> </span><br />
+<span><input value="4" correct=0 id="Q41A3" name="rb41" type="radio" ></input> </span><br />
+</div>
+</div>
+
+<div id="divQuestion42"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>According to Section 20, suit to be instituted where defendants reside or cause of action arises</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=1 id="Q42A0" name="rb42" type="radio" ></input> True</span><br />
+<span><input value="2" correct=0 id="Q42A1" name="rb42" type="radio" ></input> False</span><br />
+<span><input value="3" correct=0 id="Q42A2" name="rb42" type="radio" ></input> </span><br />
+<span><input value="4" correct=0 id="Q42A3" name="rb42" type="radio" ></input> </span><br />
+</div>
+</div>
+
+<div id="divQuestion43"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>According to Section 21 of CPC, objections as to territorial of the court cannot be raised</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q43A0" name="rb43" type="radio" ></input> Appellate Stage</span><br />
+<span><input value="2" correct=0 id="Q43A1" name="rb43" type="radio" ></input> Revision Stage</span><br />
+<span><input value="3" correct=1 id="Q43A2" name="rb43" type="radio" ></input> Both a & b</span><br />
+<span><input value="4" correct=0 id="Q43A3" name="rb43" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion44"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Objection of territorial jurisdiction can be raised only by</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q44A0" name="rb44" type="radio" ></input> Plaintiff</span><br />
+<span><input value="2" correct=1 id="Q44A1" name="rb44" type="radio" ></input> Defendant</span><br />
+<span><input value="3" correct=0 id="Q44A2" name="rb44" type="radio" ></input> Both a & b</span><br />
+<span><input value="4" correct=0 id="Q44A3" name="rb44" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion45"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Section 21 of CPC talks only about</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=0 id="Q45A0" name="rb45" type="radio" ></input> The pecuniary jurisdiction</span><br />
+<span><input value="2" correct=1 id="Q45A1" name="rb45" type="radio" ></input> Territorial Jurisdiction</span><br />
+<span><input value="3" correct=0 id="Q45A2" name="rb45" type="radio" ></input> Both a & b</span><br />
+<span><input value="4" correct=0 id="Q45A3" name="rb45" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion46"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>The section 24 of CPC empowers the High Court and District Court to</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=1 id="Q46A0" name="rb46" type="radio" ></input> Transfer, withdraw and retransfer the cases at any stage</span><br />
+<span><input value="2" correct=0 id="Q46A1" name="rb46" type="radio" ></input> Stop transfer, withdraw and retransfer the cases at any stage</span><br />
+<span><input value="3" correct=0 id="Q46A2" name="rb46" type="radio" ></input> Both a & b </span><br />
+<span><input value="4" correct=0 id="Q46A3" name="rb46" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divQuestion47"   style="width:100%;height::auto;align:center;background-color:lightyellow;display:none">
+<div ><span>Summons may be defined as under</span></div>
+<div id="divAnswer0" style="text-align:left;width:100%;padding:20px;"
+<span><input value="1" correct=1 id="Q47A0" name="rb47" type="radio" ></input> A written notification issued by a Civil Court</span><br />
+<span><input value="2" correct=0 id="Q47A1" name="rb47" type="radio" ></input> An oral notification issued by a Civil Court</span><br />
+<span><input value="3" correct=0 id="Q47A2" name="rb47" type="radio" ></input> Both a & b</span><br />
+<span><input value="4" correct=0 id="Q47A3" name="rb47" type="radio" ></input> None of the above</span><br />
+</div>
+</div>
+
+<div id="divSummary" style="width:75%;height:75%;align:center;background-color:lightyellow;display:none">
+<div ><span><strong>Quiz Summary:<strong></span></div>
+<div style="text-align:left;width:100%;padding:20px;">
+<span id="lblCorrect">Correct Answers: </span><br />
+<span id="lblIncorrect">Incorrect Answers: </span><br />
+<span id="lblManual">Answers requiring manual review: </span><br />
+</div>
+</div>
+</div>
+<a href="http://mcqobjectives.move.pk">Home</a>
+<script> UpdateTitle(); </script>
+</body></HTML>
